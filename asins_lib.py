@@ -13,7 +13,7 @@ def get_asin_from_url(url):
 
 def scrape_asins_from_url(url,ua,proxy):
     headers = {'User-Agent': ua}
-    proxy = {'http': 'http://'+proxy}
+    proxy = { 'http': 'http://'+proxy, 'https': 'https://'+proxy}
     page = requests.get(url,headers=headers, proxies=proxy)
     html_content = page.text
     soup = BeautifulSoup(html_content, 'lxml')
